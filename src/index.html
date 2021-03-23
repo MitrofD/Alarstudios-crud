@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= htmlWebpackPlugin.tags.headTags %>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <%= htmlWebpackPlugin.tags.bodyTags %>
+      <h1 class="text-center">Users</h1>
+      <div class="mt-3" id="user-list"></div>
+      <div class="alert alert-warning" id="empty">
+        Users not found
+      </div>
+      <form id="add-form" method="post">
+        <div class="row mt-3">
+          <div class="col-6">
+            <label class="form-label">Name</label>
+            <input class="form-control" name="user-name" placeholder="Enter name..." type="text" />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Phone</label>
+            <input class="form-control" name="user-phone" placeholder="Enter phone number..." type="text" />
+          </div>
+        </div>
+        <div class="alert alert-danger mt-3" id="add-error" role="alert"></div>
+        <div class="row mt-3">
+          <div class="col-12">
+            <button class="btn btn-primary float-right" type="submit">Add new</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script type="text/template" id="user-template">
+      <div class="row py-3 border-bottom">
+        <div class="col-4"><%= name %></div>
+        <div class="col-4"><%= phone %></div>
+        <div class="col-4 text-right">
+          <button class="btn btn-sm btn-primary">
+            Edit
+          </button>
+          <button class="btn btn-sm btn-danger">
+            Delete
+          </button>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="user-edit-template">
+      <form class="row py-3 border-bottom" method="post">
+        <div class="col-4">
+          <input class="form-control form-control-sm" name="user-name" placeholder="User name" type="text" value="<%= name %>" />
+        </div>
+        <div class="col-4">
+          <input class="form-control form-control-sm" name="user-phone" placeholder="Phone number" type="text" value="<%= phone %>" />
+        </div>
+        <div class="col-4 text-right">
+          <button class="btn btn-sm btn-success" type="submit">
+            Save
+          </button>
+          <button class="btn btn-sm btn-secondary" type="button">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </script>
+  </body>
+</html>

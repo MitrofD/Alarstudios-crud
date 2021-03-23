@@ -1,0 +1,44 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap-grid.scss";
+@import "~bootstrap/scss/bootstrap-reboot.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+$border: solid 2px #000000;
+
+canvas {
+  border: $border;
+  display: block;
+  margin: 10px auto;
+}
+
+button {
+  border: $border;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  outline: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 750px;
+  padding: 30px 0;
+
+  .alert {
+    display: none;
+  }
+}
